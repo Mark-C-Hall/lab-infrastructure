@@ -1,3 +1,4 @@
+### State Bucket
 # Create an S3 bucket to store the Terraform state
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "lab.${var.domain_name}-terraform-state"
