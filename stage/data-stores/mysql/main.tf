@@ -13,7 +13,7 @@ terraform {
 }
 
 module "aws_db_instance" {
-  source = "../../../modules/data-stores/mysql"
+  source = "../../../../modules/data-stores/mysql"
 
   db_instance_name = "mysql-stage"
   db_username      = var.db_username
