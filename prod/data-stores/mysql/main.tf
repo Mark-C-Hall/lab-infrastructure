@@ -5,7 +5,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket         = "lab.markchall.com-terraform-state"
-    key            = "lab/stage/data-stores/mysql/terraform.tfstate"
+    key            = "lab/prod/data-stores/mysql/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "lab-terraform-locks"
     encrypt        = true
@@ -15,7 +15,7 @@ terraform {
 module "aws_db_instance" {
   source = "../../../modules/data-stores/mysql"
 
-  db_instance_name = "mysql-stage"
+  db_instance_name = "mysql-prod"
   db_username      = var.db_username
   db_password      = var.db_password
 
