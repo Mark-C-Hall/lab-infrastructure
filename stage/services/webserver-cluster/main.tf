@@ -13,7 +13,7 @@ terraform {
 }
 
 module "webserver_cluster" {
-  source = "github.com/mark-c-hall/modules//services/webserver-cluster?ref=v0.0.1"
+  source = "../../../../modules/services/webserver-cluster"
 
   cluster_name           = "webservers-stage"
   db_remote_state_bucket = "lab.markchall.com-terraform-state"
@@ -22,6 +22,11 @@ module "webserver_cluster" {
   instance_type = "t2.micro"
   min_size      = 1
   max_size      = 1
+
+  custom_tags = {
+    Owner    = "mark-c-hall"
+    MangedBy = "Terraform"
+  }
 }
 
 output "dns_name" {
